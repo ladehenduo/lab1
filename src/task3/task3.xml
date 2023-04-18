@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <major name="计算机科学与技术">
+        <class number="1">
+            <name name1="姓名">张三</name>
+            <email name1="邮箱">1346578@123.com</email>
+        </class>
+        <class number="2">
+            <name name1="姓名">李四</name>
+            <email name1="邮箱">978454613@qq.com</email>
+        </class>
+    </major>
+    <major name="计算机类">
+        <class number="1">
+            <name name1="姓名">沃兹基·硕德</name>
+            <email name1="邮箱">123456789@163.com</email>
+        </class>
+        <class number="2">
+            <name name1="姓名">李华</name>
+            <email name1="邮箱">1234561@64.com</email>
+        </class>
+    </major>
+</root>
