@@ -14,18 +14,18 @@ import java.sql.SQLOutput;
 
 public class DomAnalyze {
     public static void main(String args[]) throws ParserConfigurationException, IOException, SAXException {
-        File file = new File("D:\\Java Web\\Project\\test1\\src\\task3\\task3.xml");
+        /*
+         * 1. xml 包括元素、属性、文本
+         * 2. 元素定义是递归的，元素可以包含属性、文本，也可以包含若干元素
+         * 3. 属性用来描述元素的相关信息
+         * */
+        File file = new File("E:\\JavaEE\\test1\\src\\task3\\task3.xml");
         // 获得Document工厂
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         // 通过工厂获得DocumentBuilder
         DocumentBuilder builder = factory.newDocumentBuilder();
         // 通过Builder获得 Document 对象
         Document document = builder.parse(file);
-        /*
-        * 1. xml 包括元素、属性、文本
-        * 2. 元素定义是递归的，元素可以包含属性、文本，也可以包含若干元素
-        * 3. 属性用来描述元素的相关信息qqq
-        * */
 
         // 获取所有名为 major 的元素
         NodeList nodeList = document.getElementsByTagName("major");

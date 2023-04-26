@@ -1,7 +1,7 @@
 package task1.defException;
 
 public class MainTest {
-    public static void main(String args) {
+    public static void main(String[] args) {
         CampusCard card = new CampusCard("2012020063");
         try {
             System.out.println("充值500元");

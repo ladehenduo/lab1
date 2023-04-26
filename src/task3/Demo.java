@@ -4,11 +4,11 @@ import task1.*;
 
 public class Demo {
     public static void main(String args[]) throws IOException {
-        File file = new File("E:\\JavaEE实验\\test1\\src\\task3\\io.txt");
+        File file = new File("E:\\JavaEE\\test1\\src\\task3\\io.txt");
         BufferedInputStream bin = new BufferedInputStream(new FileInputStream(file));
         BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(file));
 
-        byte[] bytes = {1, 2, 3, 4, 5, 6, 7, 8, 9, 100};
+        byte[] bytes = {48, 49, 50, 54, 55, 56, 57, 58, 59, 100};
         byte[] bytes1 = new byte[20];
 
         bout.write(bytes);
@@ -18,14 +18,15 @@ public class Demo {
         bin.read(bytes1, 2, 5); //存储的起始位置， 读入的长度
         System.out.print("从文件" + file.getName() + "读出：");
         for(int i = 2; i < 7; i++) {
-            System.out.print(bytes1[i] + ' ');
+            System.out.print((bytes1[i]));
+            System.out.print(' ');
         }
         System.out.println();
         bin.close();
         bout.close();
 
         // 对象持久化：首先对象要能序列化，才能持久化，对象实现Serializable接口即实现序列化
-        File file1 = new File("E:\\JavaEE实验\\test1\\src\\task3\\obj.txt");
+        File file1 = new File("E:\\JavaEE\\test1\\src\\task3\\obj.txt");
         Person[] p = new Person[10];
         String baseName = "WW";
         int baseWeight = 100;
