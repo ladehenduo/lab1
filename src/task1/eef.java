@@ -1,11 +1,19 @@
 package task1;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class eef {
 
     public static void main(String args[]) {
 //        MainTest.main("");
 //        GenericTest.main();
-//         1.输入异常：输入不符合要求
+//         1.输入异常：输入不符合要求  InputMissMatchException
 //		{
 //			int a = 0;
 //			Scanner in = new Scanner(System.in);
@@ -21,56 +29,50 @@ public class eef {
 //			}
 //			System.out.println(a);
 //		}
-//        // 2.不合法获取异常: 当前位置不可访问一些方法、属性、变量
-//		{
-//			task1.Person p = new task1.Person();
-//			p.name = "qx";
-//			p.setHigh(180);
-//			p.setWeigh(100);
-//			try {
-//				System.out.println("身高：" + p.getHigh());
-//			}
-//			catch(IllegalAccessException e) {
-//				System.out.println("无权限访问");
-//			}
-//		}
-        // 3.类型转换异常：不是其子类，强行转换到其类型
-//        {
-//            task1.Person p = new task1.Student();
-//            p.name = "qx";
-//            task1.Student s = null;
-//            try {
-//                s = (task1.Student) p;
-//                System.out.println("班级名：" + s.classname);
-//            }
-//            catch(ClassCastException e) {
-//                System.out.println("强制转换异常！");
-//            }
-//            finally {
-//                System.out.println("学生名："+s.name);
-//            }
-//        }
-
-        // 4.数据访问异常
+//        // 2.不合法获取异常: 当前位置不可访问一些方法、属性、变量  IllegalAccessException
+		{
+			try {
+				Class mankind = Class.forName("task1.Student");
+				try {
+					Object ob = mankind.newInstance();
+				} catch (InstantiationException e) {
+					throw new RuntimeException(e);
+				} catch (IllegalAccessException e) {
+					System.out.println("抛出IllegalAccessException");
+				}
+			} catch (ClassNotFoundException e) {
+				System.out.println("ClassNotFoundException");
+			}
+		}
+        // 3.类型转换异常：不是其子类，强行转换到其类型 ClassCastException
 //        {
 //            try{
-//                Object obj = new Integer(1);
+//                Teacher teacher = new Teacher();
+//                Person person = (Person) teacher;
+//                Student student = (Student) person;
 //            }catch (ClassCastException e) {
-//                System.out.println(e.getMessage());
+//                System.out.println("强转类型异常");
 //            }
-//
 //        }
 
-        // 5.I/O异常
+        // 4.数据库异常：提供关于数据库访问错误和其他错误信息的异常
+//        {
+//            try {
+//                Connection con = DriverManager.getConnection("1111");
+//            } catch (SQLException e) {
+//                System.out.println("连接失败" + e.getMessage());
+//            }
+//        }
+
+        // 5.I/O异常  IOException
 //        {
 //            FileWriter fw = null;
 //            try{
 //                fw = new FileWriter("W:\\1.txt");
 //                fw.write("1234567");
 //            }catch (IOException e) {
-//                System.out.println("路径不存在");
-//            }
-//            finally {
+//                System.out.println("IO异常："+e.getMessage());
+//            } finally {
 //                if(fw != null){
 //                    try {
 //                        fw.close();
@@ -81,7 +83,7 @@ public class eef {
 //            }
 //        }
 
-        // 6.空指针异常
+        // 6.空指针异常 NullPointerException
 //		{
 //			task1.Person p = null;
 //			try {
@@ -91,38 +93,22 @@ public class eef {
 //				System.out.println("没有指定的p");
 //			}
 //		}
-//         7.类未找到异常
+//         7.类未找到异常 ClassNotFoundException
 //		{
-//			Connecter c = new Connecter();
-//		}
-        // 8.不合法参数
+//            try {
+//                Class f = Class.forName("abcd");
+//            } catch (ClassNotFoundException e) {
+//                System.out.println("没有找到类" + "abcd");
+//            }
+//        }
+        // 8.不合法参数 IllegalArgumentException
 //		{
-//			task1.Person p = null;
 //            try{
-//                task1.Student s = new task1.Student(p);
+//                task1.Student s = new task1.Student(null);
 //            }catch (IllegalArgumentException e) {
 //                System.out.println("参数不合法");
 //            }
-//
 //		}
-// 9.算术异常
-//        {
-//            int a = 1, b = 0;
-//            try{
-//                System.out.println(a/b);
-//            }catch (ArithmeticException e) {
-//                System.out.println(e.fillInStackTrace());
-//            }
-//        }
-//    10. 数组越界异常
-//        {
-//            int[] arr = new int[10];
-//            try{
-//                System.out.println(arr[10]);
-//            }catch (ArrayIndexOutOfBoundsException e){
-//                System.out.println(e.getMessage());
-//            }
-//        }
 
     }
 }

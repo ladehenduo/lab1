@@ -8,4 +8,7 @@ public class Student extends Person{
             throw new IllegalArgumentException("参数不合法");
         this.name = p.name;
     }
+
+    private Student() {
+    }
 }
